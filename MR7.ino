@@ -21,14 +21,14 @@ void setup() {
 }
 
 void loop() {
-    calibrateSensors();
+    calibrateSensors(); // Sometimes, sensors need time to catch up with the real value. It happens when sensors are planted in various moisture levels.
     while(1){
         t=millis();
         while(1){
-            if(checkTimeSeconds(10, t)==1){
+            if(checkTimeSeconds(10, t)==1){ // Returns 1 when 10 seconds passes since t
                 readSensors(A0, read_channels);
                 printSensors(SENSORS_QTY, read_channels, cycles);
-                Pair(0, 50, 5, read_channels, cycles); // (Channel, Moisture_Threshold_Percentage, Pump_Worktime_Seconds, table to keep cycles record)
+                Pair(0, 50, 5, read_channels, cycles); // (Channel, Moisture_Threshold_Percentage, Pump_Worktime_Seconds, table of reads, table to keep cycles record)
                 Pair(1, 40, 10, read_channels, cycles);
                 break;
             }
