@@ -39,12 +39,12 @@ void readSensors(int Analog_Pin, int Read[]){
 
 void printSensors(const int& Sensors_Qty, int Read_Channels[], int Cycles[]){
     for(int i = 0; i<SENSORS_QTY; i++)
-      Serial.print((String)" " + i + "(" + Cycles[i] + ")" + ": " + readMoistureInPercent(Read_Channels[i]) + "%");
+        Serial.print((String)" " + i + "(" + Cycles[i] + ")" + ": " + readMoistureInPercent(Read_Channels[i]) + "%");
     Serial.print("\n");
     }
 void printSensors(const int& Sensors_Qty, int Read_Channels[]){
     for(int i = 0; i<SENSORS_QTY; i++)
-      Serial.print((String)" " + i + ": " + readMoistureInPercent(Read_Channels[i]) + "%" + " (" + Read_Channels[i] + ")");
+        Serial.print((String)" " + i + ": " + readMoistureInPercent(Read_Channels[i]) + "%" + " (" + Read_Channels[i] + ")");
     Serial.print("\n");
     }
 

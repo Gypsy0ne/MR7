@@ -12,9 +12,9 @@ void justRead(int Read_Channels[]){
 }
 
 void Pair(int Channel, int Moisture_Threshold_Percentage, int Pumps_Worktime_Seconds, int Read_Channels[], int Cycles[]){  
-                if(map(Read_Channels[Channel], DRY_THRESHOLD, WET_THRESHOLD, 0, 100) < Moisture_Threshold_Percentage){
-                    activatePump(Channel, Pumps_Worktime_Seconds);
-                    Cycles[Channel]++;
-                    calibrateSensors();
-                }
-            }    
+    if(map(Read_Channels[Channel], DRY_THRESHOLD, WET_THRESHOLD, 0, 100) < Moisture_Threshold_Percentage){
+        activatePump(Channel, Pumps_Worktime_Seconds);
+        Cycles[Channel]++;
+        calibrateSensors();
+    }
+}    
