@@ -26,7 +26,7 @@ void loop() {
         while(1){
             if(checkTimeSeconds(10, t)==1){ // Returns 1 when 10 seconds passes since t
                 readSensors(A0, readChannels);
-                printSensors(SENSORS_QTY, readChannels, cycles);
+                printSensors(readChannels, cycles);
                 pair(0, 50, 5, readChannels, cycles); // (Channel, Moisture_Threshold_Percentage, Pump_Worktime_Seconds, table of reads, table to keep cycles record)
                 pair(1, 40, 10, readChannels, cycles);
                 break;

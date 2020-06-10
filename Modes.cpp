@@ -8,7 +8,7 @@
 
 void justRead(int readChannels[]){
     readSensors(A0, readChannels);
-    printSensors(SENSORS_QTY, readChannels);
+    printSensors(readChannels);
 }
 
 void pair(int channel, int moistureThresholdPercentage, int pumpsWorktimeSeconds, int readChannels[], int cycles[]){  
