@@ -8,7 +8,7 @@
 // wysoka czestotliwosc odczytu (czesciej niz 1/s) spowalnia stabilizacje czujnika
 // class pair kazda para sensor-pompa jest obiektem?
 
-int read_channels[SENSORS_QTY] = {0}; // Table for sensor reads.
+int readChannels[SENSORS_QTY] = {0}; // Table for sensor reads.
 int cycles[SENSORS_QTY] = {0}; // Counts pump activations.
 unsigned long t = 0;
 
@@ -26,10 +26,10 @@ void loop() {
         t=millis();
         while(1){
             if(checkTimeSeconds(10, t)==1){ // Returns 1 when 10 seconds passes since t
-                readSensors(A0, read_channels);
-                printSensors(SENSORS_QTY, read_channels, cycles);
-                Pair(0, 50, 5, read_channels, cycles); // (Channel, Moisture_Threshold_Percentage, Pump_Worktime_Seconds, table of reads, table to keep cycles record)
-                Pair(1, 40, 10, read_channels, cycles);
+                readSensors(A0, readChannels);
+                printSensors(SENSORS_QTY, readChannels, cycles);
+                Pair(0, 50, 5, readChannels, cycles); // (Channel, Moisture_Threshold_Percentage, Pump_Worktime_Seconds, table of reads, table to keep cycles record)
+                Pair(1, 40, 10, readChannels, cycles);
                 break;
             }
         }

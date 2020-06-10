@@ -3,8 +3,8 @@
 #include "Config.h"
 #include "Arduino.h"
 
-void setMuxChannel(int Channel){
-    switch(Channel){
+void setMuxChannel(int channel){
+    switch(channel){
         case 0:
             digitalWrite(MUX_CONTROL[2],0);
             digitalWrite(MUX_CONTROL[1],0);

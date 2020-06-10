@@ -6,15 +6,15 @@
 #include "Pumps.h"
 #include "Arduino.h"
 
-void justRead(int Read_Channels[]){
-    readSensors(A0, Read_Channels);
-    printSensors(SENSORS_QTY, Read_Channels);
+void justRead(int readChannels[]){
+    readSensors(A0, readChannels);
+    printSensors(SENSORS_QTY, readChannels);
 }
 
-void Pair(int Channel, int Moisture_Threshold_Percentage, int Pumps_Worktime_Seconds, int Read_Channels[], int Cycles[]){  
-    if(map(Read_Channels[Channel], DRY_THRESHOLD, WET_THRESHOLD, 0, 100) < Moisture_Threshold_Percentage){
-        activatePump(Channel, Pumps_Worktime_Seconds);
-        Cycles[Channel]++;
+void pair(int channel, int moistureThresholdPercentage, int pumpsWorktimeSeconds, int readChannels[], int cycles[]){  
+    if(map(readChannels[channel], DRY_THRESHOLD, WET_THRESHOLD, 0, 100) < moistureThresholdPercentage){
+        activatePump(channel, pumpsWorktimeSeconds);
+        cycles[channel]++;
         calibrateSensors();
     }
 }    

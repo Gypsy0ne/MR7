@@ -4,16 +4,16 @@
 #include "Multiplexers.h"
 #include "Arduino.h"
 
-bool setAllPumps(int Sensor_Values[], const int Moisture_Threshold_Percentage, const unsigned long Working_Time_Seconds){
-    unsigned long time_start = 0, time_end = 0;
-    for(int pump_number = 0; pump_number<PUMPS_QTY; pump_number++) // Check every sensor read one after another.
-        if(map(Sensor_Values[pump_number], DRY_THRESHOLD, WET_THRESHOLD, 0, 100) < Moisture_Threshold_Percentage){ // If an x read is below the threshold
-            setMuxChannel(pump_number); // set mux channel x
-            time_start = millis();
+bool setAllPumps(int sensorValues[], const int moistureThresholdPercentage, const unsigned long workingTimeSeconds){
+    unsigned long timeStart = 0, timeEnd = 0;
+    for(int pumpNumber = 0; pumpNumber<PUMPS_QTY; pumpNumber++) // Check every sensor read one after another.
+        if(map(sensorValues[pumpNumber], DRY_THRESHOLD, WET_THRESHOLD, 0, 100) < moistureThresholdPercentage){ // If an x read is below the threshold
+            setMuxChannel(pumpNumber); // set mux channel x
+            timeStart = millis();
             digitalWrite(PUMPING_PIN, HIGH); // activate pump 
             do{
-                time_end = millis();
-            }while(time_end - time_start < Working_Time_Seconds*1000); // for duration of Working_Time_Seconds.
+                timeEnd = millis();
+            }while(timeEnd - timeStart < workingTimeSeconds*1000); // for duration of workingTimeSeconds.
             digitalWrite(PUMPING_PIN, LOW);
             delay(20000); // reset sensors.
             return 1; // a pump was activated!
@@ -21,13 +21,13 @@ bool setAllPumps(int Sensor_Values[], const int Moisture_Threshold_Percentage, c
     return 0;    
 }       
 
-void activatePump(const int Pump_Number, const unsigned long Working_Time_Seconds){
-    unsigned long time_start = 0, time_end = 0; 
-    setMuxChannel(Pump_Number);
+void activatePump(const int pumpNumber, const unsigned long workingTimeSeconds){
+    unsigned long timeStart = 0, timeEnd = 0; 
+    setMuxChannel(pumpNumber);
     digitalWrite(PUMPING_PIN, HIGH);
-    time_start = millis();
+    timeStart = millis();
     do{
-        time_end = millis();
-    }while(time_end - time_start < Working_Time_Seconds*1000);
+        timeEnd = millis();
+    }while(timeEnd - timeStart < workingTimeSeconds*1000);
     digitalWrite(PUMPING_PIN, LOW);   
 }

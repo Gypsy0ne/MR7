@@ -1,9 +1,9 @@
 #ifndef Time_h
 #define Time_h
 
-bool setTime(unsigned long& Time_Mark); // If Time_Mark = 0, sets current millis() to it and returns 1.
-bool countSeconds(unsigned long Seconds, unsigned long& Time_Mark);
-bool checkTimeMinutes(unsigned long Count, unsigned long& Time_Mark); // If Count minutes have passed since Time_Mark, returns 1 and resets Time_Mark to 0.
-bool checkTimeSeconds(unsigned long Count, unsigned long& Time_Mark); // If Count seconds have passed since Time_Mark, returns 1 and resets Time_Mark to 0.
+bool setTime(unsigned long& timeMark); // If timeMark = 0, sets current millis() to it and returns 1.
+bool countSeconds(unsigned long seconds, unsigned long& timeMark);
+bool checkTimeMinutes(unsigned long count, unsigned long& timeMark); // If count minutes have passed since timeMark, returns 1 and resets timeMark to 0.
+bool checkTimeSeconds(unsigned long count, unsigned long& timeMark); // If count seconds have passed since timeMark, returns 1 and resets timeMark to 0.
 
 #endif
