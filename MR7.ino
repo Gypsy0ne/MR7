@@ -6,7 +6,6 @@
 
 // system flagowy? kazdy odczyt ponizej progu stawia flage -> sprawdz flagi -> odpalaj pompy
 // wysoka czestotliwosc odczytu (czesciej niz 1/s) spowalnia stabilizacje czujnika
-// class pair kazda para sensor-pompa jest obiektem?
 
 int readChannels[SENSORS_QTY] = {0}; // Table for sensor reads.
 int cycles[SENSORS_QTY] = {0}; // Counts pump activations.
