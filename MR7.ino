@@ -28,8 +28,8 @@ void loop() {
             if(checkTimeSeconds(10, t)==1){ // Returns 1 when 10 seconds passes since t
                 readSensors(A0, readChannels);
                 printSensors(SENSORS_QTY, readChannels, cycles);
-                Pair(0, 50, 5, readChannels, cycles); // (Channel, Moisture_Threshold_Percentage, Pump_Worktime_Seconds, table of reads, table to keep cycles record)
-                Pair(1, 40, 10, readChannels, cycles);
+                pair(0, 50, 5, readChannels, cycles); // (Channel, Moisture_Threshold_Percentage, Pump_Worktime_Seconds, table of reads, table to keep cycles record)
+                pair(1, 40, 10, readChannels, cycles);
                 break;
             }
         }

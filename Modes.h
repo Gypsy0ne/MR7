@@ -8,7 +8,7 @@ When sensors are in various moisture zones, they need time to calibrate before p
 
 void justRead();
 
-void Pair(int channel, int moistureThresholdPercentage, int pumpsWorktimeSeconds, int readChannels[], int cycles[]);
+void pair(int channel, int moistureThresholdPercentage, int pumpsWorktimeSeconds, int readChannels[], int cycles[]);
 /* Sensors and pumps work in pairs (Channel 0 sensor on mux1 - channel 0 pump on mux2 etc.)
 Sets a single pair on the same channel. */
 
