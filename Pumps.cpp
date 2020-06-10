@@ -4,7 +4,7 @@
 #include "Multiplexers.h"
 #include "Arduino.h"
 
-bool setAllPumps(int Sensor_Values[], const int& Moisture_Threshold_Percentage, const unsigned long& Working_Time_Seconds){
+bool setAllPumps(int Sensor_Values[], const int Moisture_Threshold_Percentage, const unsigned long Working_Time_Seconds){
     unsigned long time_start = 0, time_end = 0;
     for(int pump_number = 0; pump_number<PUMPS_QTY; pump_number++) // Check every sensor read one after another.
         if(map(Sensor_Values[pump_number], DRY_THRESHOLD, WET_THRESHOLD, 0, 100) < Moisture_Threshold_Percentage){ // If an x read is below the threshold
@@ -21,7 +21,7 @@ bool setAllPumps(int Sensor_Values[], const int& Moisture_Threshold_Percentage, 
     return 0;    
 }       
 
-void activatePump(const int& Pump_Number, const unsigned long& Working_Time_Seconds){
+void activatePump(const int Pump_Number, const unsigned long Working_Time_Seconds){
     unsigned long time_start = 0, time_end = 0; 
     setMuxChannel(Pump_Number);
     digitalWrite(PUMPING_PIN, HIGH);
