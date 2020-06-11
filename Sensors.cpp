@@ -29,10 +29,10 @@
     }
 }*/
 
-void readSensors(int analogPin, int Read[]){
+void readSensors(int analogPin, int read[]){
     for(int i = 0; i < SENSORS_QTY; i++) {
-        setMuxChannel(i);
-        Read[i]=analogRead(analogPin);
+        setSensor(i);
+        read[i]=analogRead(analogPin);
     }
 }
 
@@ -61,7 +61,7 @@ void calibrateSensors(){
             seconder--;
             t=millis();
             for(int i = 0; i<SENSORS_QTY; i++)
-                setMuxChannel(i);
+                setSensor(i);
                 analogRead(A0); // After pumps interrupt sensor reads, further read values are going crazy. Reading the sensors seems to be necessary for stabilization.
             }
     }while(seconder>0);

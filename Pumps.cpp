@@ -3,7 +3,9 @@
 #include "Config.h"
 #include "Multiplexers.h"
 #include "Arduino.h"
+// OBSOLETE.
 
+/*
 bool setAllPumps(int sensorValues[], const int moistureThresholdPercentage, const unsigned long workingTimeSeconds){
     unsigned long timeStart = 0, timeEnd = 0;
     for(int pumpNumber = 0; pumpNumber<PUMPS_QTY; pumpNumber++) // Check every sensor read one after another.
@@ -31,3 +33,4 @@ void activatePump(const int pumpNumber, const unsigned long workingTimeSeconds){
     }while(timeEnd - timeStart < workingTimeSeconds*1000);
     digitalWrite(PUMPING_PIN, LOW);   
 }
+*/
