@@ -55,7 +55,7 @@ void setSensor(int channel){ // Both sensor MUXes are set to the same channel. O
 }
 
 
-void setPump(int channel){ // Activates pump on a given channel, side determines which MUX out of 2.
+void setPump(int channel){ // Activates pump on a given channel.
     SR_resetStorage(); 
     switch(channel){ // Q3/a Q4/b Q5/c Q6/side0 Q7/side1
         case 0: // 0 0 0 0 0 0  0 1
