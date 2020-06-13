@@ -5,10 +5,10 @@
 #include "Time.h"
 #include "Arduino.h"
 
-// system flagowy? kazdy odczyt ponizej progu stawia flage -> sprawdz flagi -> odpalaj pompy
 // wysoka czestotliwosc odczytu (czesciej niz 1/s) spowalnia stabilizacje czujnika
 
 int readChannels[SENSORS_QTY] = {0}; // Table for sensor reads.
+bool sensorFlags[SENSORS_QTY] = {0}; // system flagowy? kazdy odczyt ponizej progu stawia flage -> sprawdz flagi -> odpalaj pompy
 int cycles[SENSORS_QTY] = {0}; // Counts pump activations.
 unsigned long t = 0;
 

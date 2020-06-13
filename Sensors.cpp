@@ -62,7 +62,15 @@ void calibrateSensors(){
             t=millis();
             for(int i = 0; i<SENSORS_QTY; i++)
                 setSensor(i);
-                analogRead(A0); // After pumps interrupt sensor reads, further read values are going crazy. Reading the sensors seems to be necessary for stabilization.
+                analogRead(A0);
+                analogRead(A1); // After pumps interrupt sensor reads, further read values are going crazy. Reading the sensors seems to be necessary for stabilization.
             }
     }while(seconder>0);
+}
+
+bool isDry(int& channel, int& moistureThresholdPercentage, int readChannels[]){
+    if(map(readChannels[channel], DRY_THRESHOLD, WET_THRESHOLD, 0, 100) < moistureThresholdPercentage)
+        return 1;
+    else
+        return 0;
 }
