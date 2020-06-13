@@ -29,10 +29,10 @@
     }
 }*/
 
-void readSensors(int analogPin, int read[]){
+void readSensors(int analogPin, int readChannels[]){
     for(int i = 0; i < SENSORS_QTY; i++) {
         setSensor(i);
-        read[i]=analogRead(analogPin);
+        readChannels[i]=analogRead(analogPin);
     }
 }
 
