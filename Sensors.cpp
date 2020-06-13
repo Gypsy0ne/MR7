@@ -29,10 +29,23 @@
     }
 }*/
 
-void readSensors(int analogPin, int readChannels[]){
-    for(int i = 0; i < SENSORS_QTY; i++) {
+void readSensors(int analogPin1, int readChannels[]){
+    for(int i = 0; i < 8; i++) {
         setSensor(i);
-        readChannels[i]=analogRead(analogPin);
+        readChannels[i]=analogRead(analogPin1);
+    }
+}
+
+
+void readSensors(int analogPin1, int analogPin2, int readChannels[]){
+    for(int i = 0; i < 8; i++) {
+        setSensor(i);
+        readChannels[i]=analogRead(analogPin1);
+    }
+
+    for(int i = 8; i < 16; i++) {
+        setSensor((i-8));
+        readChannels[i]=analogRead(analogPin2);
     }
 }
 
@@ -54,11 +67,12 @@ void printSensors(int readChannels[]){
 
 void calibrateSensors(){
     unsigned long t=millis();
-    int seconder = SENSOR_CALIBRATING_TIME;                    
+    int seconder = SENSOR_CALIBRATING_TIME;
+    Serial.println((String)"Calibrating sensors... " + "[" + (seconder) + "s left]");                    
     do{
-        if(countSeconds(1,t)){
-            Serial.println((String)"Calibrating sensors... " + "[" + (seconder) + "]");
-            seconder--;
+        if(countSeconds(10,t)){
+            Serial.println((String)"Calibrating sensors... " + "[" + (seconder) + "s left]");
+            seconder-=10;
             t=millis();
             for(int i = 0; i<SENSORS_QTY; i++)
                 setSensor(i);
@@ -68,8 +82,8 @@ void calibrateSensors(){
     }while(seconder>0);
 }
 
-bool isDry(int& channel, int& moistureThresholdPercentage, int readChannels[]){
-    if(map(readChannels[channel], DRY_THRESHOLD, WET_THRESHOLD, 0, 100) < moistureThresholdPercentage)
+bool isDry(int& read, const int moistureThresholdPercentage){
+    if(map(read, DRY_THRESHOLD, WET_THRESHOLD, 0, 100) < moistureThresholdPercentage)
         return 1;
     else
         return 0;
