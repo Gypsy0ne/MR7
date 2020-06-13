@@ -4,8 +4,6 @@
 #include "Multiplexers.h"
 #include "Moisture.h"
 #include "Sensors.h"
-#include "Pumps.h"
-#include "Arduino.h"
 
 void justRead(int readChannels[]){
     readSensors(A0, readChannels);
