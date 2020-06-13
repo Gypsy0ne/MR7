@@ -12,7 +12,8 @@ void justRead(int readChannels[]){
     printSensors(readChannels);
 }
 
-void pair(int channel, int moistureThresholdPercentage, int pumpsWorktimeSeconds, int readChannels[], int cycles[]){  
+
+/* void pair(int channel, int moistureThresholdPercentage, int pumpsWorktimeSeconds, int readChannels[], int cycles[]){  
     if(map(readChannels[channel], DRY_THRESHOLD, WET_THRESHOLD, 0, 100) < moistureThresholdPercentage){
         setPump(channel, 0);
         delay(pumpsWorktimeSeconds*1000);
@@ -20,3 +21,5 @@ void pair(int channel, int moistureThresholdPercentage, int pumpsWorktimeSeconds
         calibrateSensors();
     }
 }    
+    //nie podoba mi sie
+*/
