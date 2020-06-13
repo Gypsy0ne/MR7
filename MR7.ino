@@ -8,7 +8,7 @@
 // wysoka czestotliwosc odczytu (czesciej niz 1/s) spowalnia stabilizacje czujnika
 
 int readChannels[SENSORS_QTY] = {0}; // Table for sensor reads.
-bool sensorFlags[SENSORS_QTY] = {0}; // system flagowy? kazdy odczyt ponizej progu stawia flage -> sprawdz flagi -> odpalaj pompy
+bool sensorFlags[SENSORS_QTY] = {0};
 int cycles[SENSORS_QTY] = {0}; // Counts pump activations.
 unsigned long t = 0;
 
@@ -20,18 +20,17 @@ void setup() {
 }
 
 
-void loop(){ // tested like this. all fine. sensors still need a break(calibration) after a pump kicks off.
-  digitalWrite(SR_LATCH, LOW);
-  readSensors(A0, readChannels);
-  printSensors(readChannels);
-  if(readChannels[4] > 426)
-  setPump(4, 0);
-  delay(5000);
-  readSensors(A1, readChannels);
-  printSensors(readChannels);
-  if(readChannels[4] > 426)
-  setPump(4, 1);
-  delay(5000);
+void loop(){
+    calibrateSensors();
+    t = millis();
+    while(1){
+        if(checkTimeMinutes(60, t) == 1){
+            digitalWrite(SR_LATCH, LOW);
+            flags(readChannels, sensorFlags, cycles);
+            printSensors(readChannels, cycles);
+            break;
+        }
+    }
 }
 
 
