@@ -3,8 +3,12 @@
 
 // Header for working modes of the MR7. 
 
-void justRead();
+void readAndPrint(int pin, int readChannels[]);
 
-void flags(int readChannels[], bool sensorFlags[], int cycles[]);
+void readAndPrint(int pin, int pin2, int readChannels[]);
+
+void collectFlags(int readChannels[], bool sensorFlags[]);
+
+void runFlaggedPumps(bool sensorFlags[], int cycles[]);
 
 #endif
