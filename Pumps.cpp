@@ -6,7 +6,7 @@
 
 void runSinglePump(int channel) {
     setPumpMuxChannel(channel);
-    delay((unsigned long)PUMP_WORKTIME_SECONDS[channel]*1000);
+    delay((unsigned long)PUMP_WORKTIME_SECONDS[channel] * 1000);
 }
 
 void runFlaggedPumps(bool sensorFlags[], int cycles[]) {

@@ -6,7 +6,7 @@
 
 void setSensorMuxChannel(int channel) { // Both sensor MUXes are set to the same channel. One MUX is connected to, for example, A0 and the other A1. 
     SR_resetStorage();
-    switch(channel){ // Q0/a Q1/b Q2/c
+    switch(channel) { // Q0/a Q1/b Q2/c
         case 0: // 0 0 0 
             SR_activateLatch();
             delay(1); // Give the mux some time to process the redirection.
@@ -57,7 +57,7 @@ void setSensorMuxChannel(int channel) { // Both sensor MUXes are set to the same
 
 void setPumpMuxChannel(int channel) { // Activates pump on a given channel.
     SR_resetStorage(); 
-    switch(channel){ // Q3/a Q4/b Q5/c
+    switch(channel) { // Q3/a Q4/b Q5/c
         case 0: // 0 0 0 0 0 0  0 1
             SR_addBit(0);
             SR_addBit(1);        

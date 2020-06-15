@@ -9,7 +9,7 @@
 void getSensorReads(int analogPin1, int readChannels[]) {
     for(int i = 0; i < 8; i++) {
         setSensorMuxChannel(i);
-        readChannels[i]=analogRead(analogPin1);
+        readChannels[i] = analogRead(analogPin1);
     }
 }
 
@@ -17,9 +17,9 @@ void getSensorReads(int analogPin1, int analogPin2, int readChannels[]) {
     for(int i = 0; i < SENSORS_QTY; i++) {
         setSensorMuxChannel(i);
         if(i <= 8)
-            readChannels[i]=analogRead(analogPin1);
+            readChannels[i] = analogRead(analogPin1);
         else
-            readChannels[i]=analogRead(analogPin2);
+            readChannels[i] = analogRead(analogPin2);
     }
 }
 
@@ -56,19 +56,19 @@ void clearFlags(bool sensorFlags[]) {
 }
 
 void calibrateSensors() {
-    unsigned long t=millis();
+    unsigned long t = millis();
     int seconder = SENSOR_CALIBRATING_TIME;
     Serial.println((String)"Calibrating sensors... " + "[" + (seconder) + "s left]");                    
     do {
-        if(countSeconds(10,t)) {
+        if(countSeconds(10, t)) {
             Serial.println((String)"Calibrating sensors... " + "[" + (seconder) + "s left]");
-            seconder-=10;
-            t=millis();
-            for(int i = 0; i<SENSORS_QTY; i++) {
+            seconder -= 10;
+            t = millis();
+            for(int i = 0; i < SENSORS_QTY; i++) {
                 setSensorMuxChannel(i);
                 analogRead(A0);
                 analogRead(A1); // After pumps interrupt sensor reads, further read values are going crazy. Reading the sensors seems to be necessary for stabilization.
             }
         }
-    }while(seconder>0);
+    }while(seconder > 0);
 }

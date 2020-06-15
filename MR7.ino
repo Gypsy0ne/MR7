@@ -20,7 +20,7 @@ void setup() {
 }
 
 
-void loop(){
+void loop() {
     flagSystem(readChannels, sensorFlags, cycles, t);
 }
 
