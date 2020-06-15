@@ -37,6 +37,24 @@ void printSensorReads(int readChannels[]) {
     Serial.print("\n");
 }
 
+bool isDry(int& read, const int moistureThresholdPercentage) {
+    if(map(read, DRY_THRESHOLD, WET_THRESHOLD, 0, 100) < moistureThresholdPercentage)
+        return 1;
+    else
+        return 0;
+}
+
+void collectFlags(int readChannels[], bool sensorFlags[]) {
+    for(int i = 0; i < SENSORS_QTY; i++)
+        if(isDry(readChannels[i], MOISTURE_THRESHOLD_PERCENTAGE[i]))
+            sensorFlags[i] = 1;
+}
+
+void clearFlags(bool sensorFlags[]) {
+    for(int i = 0; i < SENSORS_QTY; i++)
+        sensorFlags[i] = 0;
+}
+
 void calibrateSensors() {
     unsigned long t=millis();
     int seconder = SENSOR_CALIBRATING_TIME;
@@ -53,11 +71,4 @@ void calibrateSensors() {
             }
         }
     }while(seconder>0);
-}
-
-bool isDry(int& read, const int moistureThresholdPercentage) {
-    if(map(read, DRY_THRESHOLD, WET_THRESHOLD, 0, 100) < moistureThresholdPercentage)
-        return 1;
-    else
-        return 0;
 }
