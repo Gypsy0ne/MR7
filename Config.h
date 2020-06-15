@@ -13,8 +13,6 @@ const int PUMP_WORKTIME_SECONDS[16] =         {5,  5,  5,  5,  5,  5,  5,  5,  5
 const int SR_LATCH = 2; // Shift Register Controls. vv
 const int SR_SHIFT = 3;
 const int SR_DATA = 4;
- // const int MUX_CONTROL[3] = {2,3,4}; // Multiplexer control. Table size equals to quantity of control pins. MX_CONTROL[0] = S0(a), MX_CONTROL[1] = S1(b) etc.
- // const int PUMPING_PIN = 5; // High-state activation of pump-controlling transistors.
 
 //Shift Registers
 
