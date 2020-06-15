@@ -21,7 +21,7 @@ void SR_addBit(bool state, int howMany) {
     }
 }
 
-void SR_latchIt() {
+void SR_activateLatch() {
     digitalWrite(SR_LATCH, HIGH);
     digitalWrite(SR_LATCH, LOW);
 }

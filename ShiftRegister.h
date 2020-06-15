@@ -12,6 +12,6 @@ void SR_resetStorage();
 
 void SR_addBit(bool state, int howMany=1);
 
-void SR_latchIt();  
+void SR_activateLatch();  
 
 #endif
