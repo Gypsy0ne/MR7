@@ -16,10 +16,12 @@ void getSensorReads(int analogPin1, int readChannels[]) {
 void getSensorReads(int analogPin1, int analogPin2, int readChannels[]) {
     for(int i = 0; i < SENSORS_QTY; i++) {
         setSensorMuxChannel(i);
-        if(i <= 8)
+        if(i <= 8) {
             readChannels[i] = analogRead(analogPin1);
-        else
+        }
+        else {
             readChannels[i] = analogRead(analogPin2);
+        }
     }
 }
 
@@ -38,21 +40,26 @@ void printSensorReads(int readChannels[]) {
 }
 
 bool isDry(int& read, const int moistureThresholdPercentage) {
-    if(map(read, DRY_THRESHOLD, WET_THRESHOLD, 0, 100) < moistureThresholdPercentage)
+    if(map(read, DRY_THRESHOLD, WET_THRESHOLD, 0, 100) < moistureThresholdPercentage) {
         return 1;
-    else
+    }
+    else {
         return 0;
+    }
 }
 
 void collectFlags(int readChannels[], bool sensorFlags[]) {
-    for(int i = 0; i < SENSORS_QTY; i++)
-        if(isDry(readChannels[i], MOISTURE_THRESHOLD_PERCENTAGE[i]))
+    for(int i = 0; i < SENSORS_QTY; i++) {
+        if(isDry(readChannels[i], MOISTURE_THRESHOLD_PERCENTAGE[i])) {
             sensorFlags[i] = 1;
+        }
+    }
 }
 
 void clearFlags(bool sensorFlags[]) {
-    for(int i = 0; i < SENSORS_QTY; i++)
+    for(int i = 0; i < SENSORS_QTY; i++) {
         sensorFlags[i] = 0;
+    }
 }
 
 void calibrateSensors() {
