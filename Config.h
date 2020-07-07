@@ -13,6 +13,7 @@ const int PUMP_WORKTIME_SECONDS[16] =         {5,  5,  5,  5,  5,  5,  5,  5,  5
 const int SR_LATCH = 2; // Shift Register Controls. vv
 const int SR_SHIFT = 3;
 const int SR_DATA = 4;
+const int TEMP_SENSOR = 8;
 
 //Shift Registers
 
