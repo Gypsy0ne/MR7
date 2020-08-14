@@ -16,7 +16,7 @@ void MenuDisplay::printOut(MenuOption actualOption, int cursorPosition){
 void MenuDisplay::printMenu(list<MenuItem> menuItems) {
     for (MenuItem x : menuItems) {
         // Serial.println(to_string(x));
-        cout << to_string(x) << endl;
+        cout << (string) x << endl;
     }
 }
 
