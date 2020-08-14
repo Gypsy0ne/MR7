@@ -20,7 +20,7 @@ class MenuOption : public MenuItem {
     public:
         void onChosen(Menu menu);
         MenuItem getMenuItemAt(int index);
-        list<MenuItem> getOrderedMenuItems;
+        list<MenuItem> getOrderedMenuItems();
         int getNumberOfMenuLines();
         void addSubOption(const MenuOption* fmt...);
         void toString();
