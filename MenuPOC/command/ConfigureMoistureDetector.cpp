@@ -1,9 +1,8 @@
 #include "ConfigureMoistureDetector.h"
-#include "MoistureDetector.h
+#include "MoistureDetector.h"
 #include "ValuePicker.h"
 
 void ConfigureMoistureDetector::execute() {
-        picker = ValuePicker(moistureDetector.value)
-        moistureDetector.value = picker.pickValue()
-    }
-}
+    ValuePicker(_moistureDetector.value).pickValue();
+    _moistureDetector.value = ValuePicker(_moistureDetector.value).pickValue();
+};
