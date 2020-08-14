@@ -2,13 +2,11 @@
 #define ValuePicker_h
 
 class ValuePicker {
-    
-    ValuePicker(int initialValue) {
-        int actualValue = initialValue;
-    }
-    
-    private:
+    public:
+        ValuePicker(int initialValue);
 
+    private:
+        int actualValue;
         int pickValue();
 }; 
 
