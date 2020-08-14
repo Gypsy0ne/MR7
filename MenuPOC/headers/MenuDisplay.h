@@ -2,8 +2,8 @@
 #ifndef MenuDisplay_h
 #define MenuDisplay_h
 
-#include "headers/MenuItem.h"
-#include "headers/MenuOption.h"
+#include "MenuItem.h"
+#include "MenuOption.h"
 #include <list>
 using namespace std;
 
