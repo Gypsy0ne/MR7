@@ -10,8 +10,7 @@ class MenuController {
     private:
         int cursorPosition;
         int actualOptionLines;
-        ControllerCallback controllerListener;
-
+        ControllerCallback _controllerListener;
         void enter();
         void up();
         void down();
