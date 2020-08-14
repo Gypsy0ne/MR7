@@ -4,10 +4,10 @@
 class ValuePicker {
     public:
         ValuePicker(int initialValue);
+        int pickValue();
 
     private:
         int actualValue;
-        int pickValue();
 }; 
 
 #endif
