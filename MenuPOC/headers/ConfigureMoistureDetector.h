@@ -9,10 +9,10 @@
 class ConfigureMoistureDetector : Command {
     public:
         void execute();
+        ConfigureMoistureDetector(MoistureDetector moistureDetector);
 
     private:
-        MoistureDetector moistureDetector;
-
+        MoistureDetector _moistureDetector;
 
 };
 
