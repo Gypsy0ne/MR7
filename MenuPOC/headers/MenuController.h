@@ -5,11 +5,12 @@
 
 class MenuController {
     public:
-        int cursorPosition;
         MenuController(ControllerCallback controllerListener);
 
     private:
+        int cursorPosition;
         int actualOptionLines;
+        ControllerCallback controllerListener;
 
         void enter();
         void up();
