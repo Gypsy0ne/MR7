@@ -4,5 +4,7 @@
 #include "Menu.h"
 
 class MenuItem {
-    virtual void onChosen(Menu menu)
+    virtual void onChosen(Menu menu);
 };
+
+#endif

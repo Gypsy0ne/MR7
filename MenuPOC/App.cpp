@@ -4,7 +4,7 @@
 
 using namespace std;
 
-int main()
+int main(int argc, char *argv[])
 {
     vector<string> msg {"Hello", "C++", "World", "from", "VS Code", "and the C++ extension!"};
 
@@ -12,5 +12,6 @@ int main()
     {
         cout << word << "autos ";
     }
+    cout << argv[1];
     cout << endl;
 }
