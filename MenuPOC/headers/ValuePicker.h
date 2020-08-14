@@ -10,6 +10,6 @@ class ValuePicker {
     private:
 
         int pickValue();
-};
+}; 
 
 #endif

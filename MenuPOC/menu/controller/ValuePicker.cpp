@@ -19,5 +19,5 @@ int ValuePicker::pickValue() {
         }
     } while (userInput != 184);
 
-    return actualValue;
+    return actualValue; 
 }
