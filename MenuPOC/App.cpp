@@ -10,7 +10,7 @@ int main()
 
     for (const string& word : msg)
     {
-        cout << word << "siema ";
+        cout << word << " ";
     }
     cout << endl;
 }
