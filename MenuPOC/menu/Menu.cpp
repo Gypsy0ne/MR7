@@ -2,7 +2,6 @@
 
 using namespace std;
 
-void Menu::start() {}
-void Menu::onActionChosen() {}
-void Menu::onOptionChosen() {}
-
+void Menu::start() { };
+void Menu::onActionChosen() { };
+void Menu::onOptionChosen() { };
