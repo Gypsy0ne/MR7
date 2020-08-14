@@ -1,4 +1,5 @@
 #include "MenuAction.h"
+#include "Menu.h"
 #include <string>
 
 using namespace std;
@@ -12,5 +13,5 @@ string MenuAction::toString() {
 };
 
 void MenuAction::onChosen(Menu menu) {
-    menu.onActionChosen()
-}
+    menu.onActionChosen();
+};
