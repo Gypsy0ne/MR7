@@ -3,6 +3,7 @@
 
 #include <string>
 #include "Command.h"
+#include "MenuItem.h"
 
 class MenuAction : public MenuItem {
     private:
