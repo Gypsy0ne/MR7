@@ -3,6 +3,8 @@
 
 #include <string>
 
+using namespace std;
+
 //todo add min, max, unit, stepValue
 class Pump {
     public:
