@@ -10,18 +10,18 @@ ValuePicker::ValuePicker(int initialValue) {
 }
 
 int ValuePicker::pickValue() {
-    int userInput = 0; 
+    unsigned char userInput = 0; 
     do {
         cout << "actual value: " << actualValue << endl;
         userInput = getch();
         // std::getline(); LINUX :: curses.h
-        if (userInput == 161) {
+        if (userInput == 'w') {
             --actualValue;
         }
-        if (userInput == 164) {
+        if (userInput == 's') {
             ++actualValue;
         }
-    } while (userInput != 184);
+    } while (userInput != 'x');
 
     return actualValue; 
 }
