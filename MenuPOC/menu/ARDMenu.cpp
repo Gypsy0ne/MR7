@@ -1,5 +1,9 @@
 #include "ARDMenu.h"
 
+#include <iostream>
+#include <conio.h>
+using namespace std;
+
 
 ARDMenu::ARDMenu(MenuOption root) {
     actualOption = &root;
@@ -20,7 +24,19 @@ void ARDMenu::goBack() {
 };
 
 void ARDMenu::start() {
-
+    while(true) {
+        cout << actualOption << controller.cursorPosition << endl;
+        unsigned char userInput = getch();
+        if (userInput == 'w') {
+            controller.up(); 
+        }
+        else if (userInput == 's') {
+            controller.down(); 
+        }
+        else if (userInput == 'x') {
+            controller.enter(); 
+        }
+    }
 };
 
 void ARDMenu::onOptionChosen(MenuOption option) {
