@@ -6,9 +6,9 @@
 class MenuController {
     public:
         MenuController(ControllerCallback controllerListener);
-
-    private:
         int cursorPosition;
+        
+    private:
         int actualOptionLines;
         ControllerCallback _controllerListener;
         void enter();
