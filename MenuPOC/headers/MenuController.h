@@ -7,13 +7,13 @@ class MenuController {
     public:
         MenuController(ControllerCallback controllerListener);
         int cursorPosition;
-        
-    private:
-        int actualOptionLines;
-        ControllerCallback _controllerListener;
         void enter();
         void up();
         void down();
+
+    private:
+        int actualOptionLines;
+        ControllerCallback _controllerListener;
         void reinitCursor(int optionLinesCount);
 };
 
