@@ -7,6 +7,7 @@ class MenuController {
     public:
         MenuController(ControllerCallback controllerListener);
         int cursorPosition;
+        void reinitCursor(int optionLinesCount);
         void enter();
         void up();
         void down();
@@ -14,7 +15,6 @@ class MenuController {
     private:
         int actualOptionLines;
         ControllerCallback _controllerListener;
-        void reinitCursor(int optionLinesCount);
 };
 
 #endif
