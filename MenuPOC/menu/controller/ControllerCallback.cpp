@@ -1,3 +1,3 @@
 #include "ControllerCallback.h"
 
-void ControllerCallback::onEnterPressed(int line) { }
+void ControllerCallback::onEnterPressed(int line) { };

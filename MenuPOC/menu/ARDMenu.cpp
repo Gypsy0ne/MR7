@@ -11,20 +11,25 @@ using namespace std;
 
 ARDMenu::ARDMenu(MenuOption root) {
     actualOption = &root;
-    display = MenuDisplay()
-
+    display = MenuDisplay();
+    controller.reinitCursor(getActualOptionNumberOfLines());
 };
 
 void ARDMenu::resolveAction(int line) {
-
+    if(line == getActualOptionNumberOfLines()) {
+        goBack();
+    } else {
+        actualOption->getMenuItemAt(line).onChosen(*this); // ?
+    }
 };
 
 int ARDMenu::getActualOptionNumberOfLines() {
-    actualOption->getNumberOfMenuLines();
+    return actualOption->getNumberOfMenuLines();
 };
 
 void ARDMenu::goBack() {
-
+    actualOption->parent; // ?
+    controller.reinitCursor(getActualOptionNumberOfLines());
 };
 
 void ARDMenu::start() {
@@ -44,9 +49,10 @@ void ARDMenu::start() {
 };
 
 void ARDMenu::onOptionChosen(MenuOption option) {
-
+    actualOption = &option;
+    controller.reinitCursor(getActualOptionNumberOfLines());
 };
 
 void ARDMenu::onActionChosen(MenuAction action) {
-
+    action.execute();
 };

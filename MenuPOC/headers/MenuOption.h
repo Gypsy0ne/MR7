@@ -12,12 +12,12 @@ using namespace std;
 class MenuOption : public MenuItem {
     private:
         string title;
-        MenuOption& parent;
         list<MenuOption> subOptions;
         list<MenuEntry> entries;
         list<MenuAction> actions;
 
     public:
+        MenuOption& parent;
         void onChosen(Menu menu);
         MenuItem getMenuItemAt(int index);
         list<MenuItem> getOrderedMenuItems();
