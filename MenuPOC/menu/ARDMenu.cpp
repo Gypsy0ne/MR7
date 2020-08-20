@@ -20,7 +20,7 @@ void ARDMenu::resolveAction(int line) {
 };
 
 int ARDMenu::getActualOptionNumberOfLines() {
-    
+    actualOption->getNumberOfMenuLines();
 };
 
 void ARDMenu::goBack() {
