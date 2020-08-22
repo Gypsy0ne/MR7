@@ -8,10 +8,13 @@ Q6 and Q7 are for pump activation. (CRUCIAL! Transistors activated with Q6 Q7 mu
 
 // MODEL: https://pdf1.alldatasheet.com/datasheet-pdf/view/15644/PHILIPS/74HC595.html
 
+
 void SR_resetStorage();
 
 void SR_addBit(bool state, int howMany=1);
 
 void SR_activateLatch();  
+
+void SR_addBitSequence(int sequence);
 
 #endif
