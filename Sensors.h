@@ -8,7 +8,9 @@ void printSensorReads(int readChannels[]);
 void collectFlags(int readChannels[], bool sensorFlags[]);
 void clearFlags(bool sensorFlags[]);
 bool isDry(int& read, const int moistureThresholdPercentage);
-void calibrateSensors(); // Obligatory first command after Arduino start and after every pump activation. Maybe obsolete when muxes are controlled by seperate pins - research needed.
+
+// Obligatory first command after Arduino start and after every pump activation.
+void calibrateSensors();
 
 
 #endif  

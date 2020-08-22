@@ -15,6 +15,7 @@ void SR_addBit(bool state, int howMany=1);
 
 void SR_activateLatch();  
 
-void SR_addBitSequence(int sequence);
+// reversal sequence. Example: if you want 001101, sequence = 101100
+void SR_addBitSequence(int sequence); 
 
 #endif
