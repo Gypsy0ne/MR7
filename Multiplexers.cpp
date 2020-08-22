@@ -41,7 +41,7 @@ void SensorMuxDuo::setChannel(int channel) {
     }
 }
 
-// Hardware note: Same channel is set for both muxes, last two digits determine which one gets high input.
+// Hardware note: Same channel is set for both muxes, last two digits may determine which one gets high input.
 void PumpMuxDuo::setChannel(int channel) { 
     ShiftRegister SR;
     switch(channel) { // Q3/a Q4/b Q5/c
