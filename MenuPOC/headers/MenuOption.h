@@ -10,7 +10,7 @@
 using namespace std;
 
 
-class MenuOption : MenuItem {
+class MenuOption : public MenuItem {
     private:
         string title;
         mutable list<MenuOption> subOptions;

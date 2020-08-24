@@ -7,7 +7,7 @@
 
 using namespace std;
 
-class MenuEntry : MenuItem {
+class MenuEntry : public MenuItem {
     private: 
         string title;
         string value;
