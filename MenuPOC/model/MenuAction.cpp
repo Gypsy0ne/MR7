@@ -13,5 +13,5 @@ string MenuAction::toString() {
 };
 
 void MenuAction::onChosen(Menu menu) {
-    menu.onActionChosen();
+    menu.onActionChosen(*this);
 };
