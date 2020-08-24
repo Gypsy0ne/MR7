@@ -10,14 +10,14 @@ class Multiplexer {
 
 class PumpMuxDuo : Multiplexer {
     public:
-        inline PumpMuxDuo(int channel) { setChannel(channel) }
+        inline PumpMuxDuo(int channel) { setChannel(channel); }
     private:
         void setChannel(int channel);
 };
 
 class SensorMuxDuo : Multiplexer {
     public:
-        inline SensorMuxDuo(int channel) { setChannel(channel) }
+        inline SensorMuxDuo(int channel) { setChannel(channel); }
     private:
         void setChannel(int channel);
 };
