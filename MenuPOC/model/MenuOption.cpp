@@ -13,7 +13,17 @@ string MenuOption::toString() {
 }
 
 list<MenuItem> MenuOption::getOrderedMenuItems() {
-
+    list<MenuItem> mergedList = list<MenuItem>();
+    for(MenuItem const& i : actions) {
+        mergedList.push_back(i);
+    }
+    for(MenuItem const& i : subOptions) {
+        mergedList.push_back(i);
+    }
+    for(MenuItem const& i : entries) {
+        mergedList.push_back(i);
+    }
+    return mergedList;
 }
 
 MenuItem MenuOption::getMenuItemAt(int index) {
