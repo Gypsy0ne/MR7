@@ -1,9 +1,10 @@
 #include "Config.h"
-#include "Modes.h"
-#include "Temperature.h"
+#include "Sensors.h"
+#include "Pumps.h"
 #include "Arduino.h"
 
 // TODO: error control for pumps (measure current between VCC and collectors. Analog reads on both nodes of a resistor in a common control line.)
+
 
 int readChannels[SENSORS_QTY] = {0}; // Table for sensor reads.
 bool sensorFlags[SENSORS_QTY] = {0};
@@ -18,9 +19,21 @@ void setup() {
     pinMode(TEMP_SENSOR, INPUT);
     pinMode(PUMP1, OUTPUT);
     pinMode(PUMP2, OUTPUT);
+
+    configData dataSet;
+    Pump PumpArray[PUMPS_QTY];
+    MoistureSensor MsArray[SENSORS_QTY];
+
+    for(int i = 0; i < PUMPS_QTY; i++) {
+        PumpArray[i].setParameters(i, dataSet.worktimeGetter(i), i);
+        if (i < 7) {
+            MsArray[i].setParameters(i, dataSet.thresholdGetter(i), i);
+        } else {
+            MsArray[i].setParameters(i, dataSet.thresholdGetter(i), i, A1);
+        }
+    }
 }
 
-
 void loop() {
-    flagSystem(readChannels, sensorFlags, cycles, t);
+
 }
