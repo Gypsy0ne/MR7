@@ -6,14 +6,42 @@
 #include "Time.h"
 #include "Arduino.h"
 
-void runSinglePump(int channel) {
-    unsigned long t = millis();
-    setPumpMuxChannel(channel);
-    Serial.println((String) "Pump " + channel + " activated.");
-    do {
+Pump::Pump(int worktime, int channel) {
+    _worktime = worktime;
+    _channel = channel;
+}
 
-    }while(!checkTimeSeconds(PUMP_WORKTIME_SECONDS[channel], t));
-    SR_resetStorage();
+void Pump::on() {
+    if(_channel < 8) {
+        digitalWrite(_activatingPin1, HIGH);
+    } else {
+        digitalWrite(_activatingPin2, HIGH);
+    }
+}
+
+void Pump::off() {
+    if(_channel < 8) {
+        digitalWrite(_activatingPin1, LOW);
+    } else {
+        digitalWrite(_activatingPin2, LOW);
+    }
+}
+
+bool Pump::timesUp() {
+    unsigned long t = millis();
+    if(t - _timer >= _worktime*1000) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
+void Pump::activate() {
+    PumpMuxDuo Pmd(_channel);
+    on();
+    _timer = millis();
+    // if(currentControl)
+        Serial.println((String) "Pump " + _channel + " activated.");
 }
 
 void runFlaggedPumps(bool sensorFlags[], int cycles[]) {
