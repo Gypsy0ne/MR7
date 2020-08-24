@@ -9,6 +9,11 @@
 #include <conio.h>
 using namespace std;
 
+MenuOption* actualOption;
+MenuDisplay display;
+ControllerCallback controllerListener;
+MenuController controller(controllerListener);
+
 ARDMenu::ARDMenu(MenuOption root) {
     actualOption = &root;
     display = MenuDisplay();

@@ -8,9 +8,6 @@
 
 class ARDMenu : public Menu {
     private:
-        MenuOption* actualOption;
-        MenuDisplay display;
-        MenuController controller;
         void resolveAction(int line);
         int getActualOptionNumberOfLines();
         void goBack();
