@@ -3,7 +3,8 @@
 
 class Pump {
     public:
-        Pump(int worktime, int channel);
+        Pump();
+        void setParameters(int ID, int worktime, int channel);
         bool timesUp();
         void activate();
         bool run();
@@ -23,7 +24,5 @@ class Pump {
         void off();
         // TODO: Error Control (current measurement)
 };
-
-class Pumpers
 
 #endif  

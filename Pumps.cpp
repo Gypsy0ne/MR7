@@ -6,7 +6,16 @@
 #include "Time.h"
 #include "Arduino.h"
 
-Pump::Pump(int worktime, int channel) {
+Pump::Pump() {
+     _ID = 0;
+    _worktime = 0;
+    _channel = 0;
+    _timer = 0;
+    _cyclesPassed = 0;
+}
+
+void Pump::setParameters(int ID, int worktime, int channel) {
+    _ID = ID;
     _worktime = worktime;
     _channel = channel;
 }
@@ -30,6 +39,7 @@ void Pump::off() {
 bool Pump::timesUp() {
     unsigned long t = millis();
     if(t - _timer >= _worktime*1000) {
+        _cyclesPassed++;
         return 1;
     } else {
         return 0;

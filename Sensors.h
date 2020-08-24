@@ -6,12 +6,8 @@
 
 class Sensor {
     public:
-        bool checkFlag() {
-            return _flag;
-        }
-        bool clearFlag() {
-            _flag = 0;
-        }
+        bool checkFlag();
+        bool clearFlag();
     protected:
         int _ID;
         int _minValue;
@@ -21,19 +17,21 @@ class Sensor {
 
 class MoistureSensor : Sensor {
     public:
-        inline MoistureSensor(int ID, int thresholdPercentage, int muxChannel, int analogPin=A0) {
-            _muxChannel = muxChannel;
-            _ID = ID;
-            _analogPin = analogPin;
-            _thresholdPercentage = thresholdPercentage;
+        inline MoistureSensor() {
+            _muxChannel = 0;
+            _ID = 0;
+            _analogPin = A0;
+            _thresholdPercentage = 0;
             _minValue = WET_THRESHOLD;
             _maxValue = DRY_THRESHOLD;
             _flag = 0;
             _value = 0;
         }
-        bool isDry();
+        void setParameters(int ID, int thresholdPercentage, int muxChannel, int analogPin=A0);
+        void setFlag();
 
     private:
+        bool isDry();
         int readValue();
         int mapValue();
         int _thresholdPercentage;

@@ -3,6 +3,27 @@
 #include "Multiplexers.h"
 #include "Arduino.h"
 
+bool Sensor::checkFlag() {
+    return _flag;
+}
+
+bool Sensor::clearFlag() {
+    _flag = 0;
+}
+
+void MoistureSensor::setParameters(int ID, int thresholdPercentage, int muxChannel, int analogPin=A0) {
+    _ID = ID;
+    _thresholdPercentage = thresholdPercentage;
+    _muxChannel = muxChannel;
+    _analogPin = analogPin;
+}
+
+void MoistureSensor::setFlag() {
+    if (isDry()) {
+        _flag = 1;
+    }
+}
+
 int MoistureSensor::readValue() {
     SensorMuxDuo smd(_muxChannel);
     return analogRead(_analogPin);
@@ -16,7 +37,6 @@ int MoistureSensor::mapValue() {
 bool MoistureSensor::isDry() {
     Serial.println((String)"S" + _ID + ": " + _value + "% /n");
     if (mapValue() < _thresholdPercentage) {
-        _flag = 1;
         return 1;
     } else {
         return 0;
