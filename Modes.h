@@ -3,6 +3,6 @@
 
 // Header for working modes of the MR7. 
 
-void flagSystem(int readChannels[], bool sensorFlags[], int cycles[], unsigned long time);
+void flagSystem();
 
 #endif
