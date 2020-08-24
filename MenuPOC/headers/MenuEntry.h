@@ -3,10 +3,11 @@
 
 #include <string>
 #include "Menu.h"
+#include "MenuItem.h"
 
 using namespace std;
 
-class MenuEntry {
+class MenuEntry : MenuItem {
     private: 
         string title;
         string value;
