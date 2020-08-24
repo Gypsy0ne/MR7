@@ -9,10 +9,11 @@
 
 using namespace std;
 
-class MenuOption : public MenuItem {
+
+class MenuOption : MenuItem {
     private:
         string title;
-        list<MenuOption> subOptions;
+        mutable list<MenuOption> subOptions;
         list<MenuEntry> entries;
         list<MenuAction> actions;
 
@@ -22,8 +23,8 @@ class MenuOption : public MenuItem {
         MenuItem getMenuItemAt(int index);
         list<MenuItem> getOrderedMenuItems();
         int getNumberOfMenuLines();
-        void addSubOption(const MenuOption* fmt...);
-        void toString();
+        void addSubOption(const MenuOption* fmt...); // ??
+        string toString();
         int getLengthOfLongestMenuItemTitle();
 };
 
