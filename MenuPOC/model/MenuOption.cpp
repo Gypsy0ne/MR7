@@ -27,7 +27,13 @@ list<MenuItem> MenuOption::getOrderedMenuItems() {
 }
 
 MenuItem MenuOption::getMenuItemAt(int index) {
-
+    int i = 0;
+    list<MenuItem> menuItemList = getOrderedMenuItems();
+    for(MenuItem const& it : menuItemList) {
+        if(i++==index) {
+            return it;
+        }
+    }
 }
 
 int getLengthOfLongestMenuItemTitle() {
