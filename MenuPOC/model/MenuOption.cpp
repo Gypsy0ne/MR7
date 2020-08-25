@@ -6,22 +6,22 @@ void MenuOption::onChosen(Menu menu) {
 }
 
 int MenuOption::getNumberOfMenuLines() {
-    return entries.size() + subOptions.size() + actions.size();
+    return _entries.size() + _subOptions.size() + _actions.size();
 }
 
 string MenuOption::toString() {
-    return ">" + title;
+    return ">" + _title;
 }
 
 list<MenuItem> MenuOption::getOrderedMenuItems() {
     list<MenuItem> mergedList = list<MenuItem>();
-    for(MenuItem const& i : actions) {
+    for(MenuItem const& i : _actions) {
         mergedList.push_back(i);
     }
-    for(MenuItem const& i : subOptions) {
+    for(MenuItem const& i : _subOptions) {
         mergedList.push_back(i);
     }
-    for(MenuItem const& i : entries) {
+    for(MenuItem const& i : _entries) {
         mergedList.push_back(i);
     }
     return mergedList;

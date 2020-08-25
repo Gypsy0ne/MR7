@@ -33,7 +33,7 @@ int ARDMenu::getActualOptionNumberOfLines() {
 };
 
 void ARDMenu::goBack() {
-    actualOption->parent; // ?
+    actualOption->_parent; // ?
     controller.reinitCursor(getActualOptionNumberOfLines());
 };
 

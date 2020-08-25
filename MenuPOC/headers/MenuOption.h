@@ -12,13 +12,19 @@ using namespace std;
 
 class MenuOption : public MenuItem {
     private:
-        string title;
-        mutable list<MenuOption> subOptions;
-        list<MenuEntry> entries;
-        list<MenuAction> actions;
-        MenuOption& parent;
+        string _title;
+        mutable list<MenuOption> _subOptions;
+        list<MenuEntry> _entries;
+        list<MenuAction> _actions;
 
     public:
+        MenuOption& _parent;
+
+        inline MenuOption(string title, MenuOption& parent) : _title(title),_parent(parent) {}
+        inline MenuOption(string title, MenuOption& parent, list<MenuEntry> entries) : _title(title),_parent(parent),_entries(entries) {}
+        inline MenuOption(string title, MenuOption& parent, list<MenuAction> actions) : _title(title),_parent(parent),_actions(actions) {}
+        
+
         void onChosen(Menu menu);
         MenuItem getMenuItemAt(int index);
         list<MenuItem> getOrderedMenuItems();
@@ -28,12 +34,12 @@ class MenuOption : public MenuItem {
         
         template<class T>
         void addSubOption(T arg) {
-            subOptions.push_back(arg);
+            _subOptions.push_back(arg);
         }
-        
+
         template<class T, class ... Args> 
         void addSubOption(T first, Args& ... args) {
-            subOptions.push_back(first);
+            _subOptions.push_back(first);
             addSubOption(args...);
         }
 
