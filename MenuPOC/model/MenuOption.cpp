@@ -1,4 +1,5 @@
 #include "MenuOption.h"
+#include <cstdarg>
 
 void MenuOption::onChosen(Menu menu) {
     menu.onOptionChosen(*this);
@@ -36,6 +37,6 @@ MenuItem MenuOption::getMenuItemAt(int index) {
     }
 }
 
-int getLengthOfLongestMenuItemTitle() {
+int MenuOption::getLengthOfLongestMenuItemTitle() {
     
 }

@@ -16,16 +16,28 @@ class MenuOption : public MenuItem {
         mutable list<MenuOption> subOptions;
         list<MenuEntry> entries;
         list<MenuAction> actions;
+        MenuOption& parent;
 
     public:
-        MenuOption& parent;
         void onChosen(Menu menu);
         MenuItem getMenuItemAt(int index);
         list<MenuItem> getOrderedMenuItems();
         int getNumberOfMenuLines();
-        void addSubOption(const MenuOption* fmt...); // ??
         string toString();
         int getLengthOfLongestMenuItemTitle();
+        
+        template<class T>
+        void addSubOption(T arg) {
+            subOptions.push_back(arg);
+        }
+        
+        template<class T, class ... Args> 
+        void addSubOption(T first, Args& ... args) {
+            subOptions.push_back(first);
+            addSubOption(args...);
+        }
+
+        // void addSubOption(const MenuOption* fmt...);
 };
 
 #endif
