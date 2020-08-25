@@ -1,17 +1,23 @@
 #include <iostream>
-#include <vector>
 #include <string>
+#include "ConfigureMoistureDetector.h"
+#include "ConfigurePumpCommand.h"
+#include "MoistureDetector.h"
+#include "Pump.h"
+#include "ARDMenu.h"
+#include "Menu.h"
+#include "MenuAction.h"
+#include "MenuEntry.h"
+#include "MenuOption.h"
 
 using namespace std;
 
-int main(int argc, char *argv[])
-{
-    vector<string> msg {"Hello", "C++", "World", "from", "VS Code", "and the C++ extension!"};
-
-    for (const string& word : msg)
-    {
-        cout << word << "autos ";
-    }
-    cout << argv[1];
-    cout << endl;
+Menu createMenu() {
+    
 }
+
+int main() {
+    Menu mainMenu = createMenu();
+    mainMenu.start();
+}
+
