@@ -1,7 +1,7 @@
 #include "MenuEntry.h"
 
 string MenuEntry::toString() {
-    return title + ": " + value;
+    return _title + ": " + _value;
 }
 
 void MenuEntry::onChosen(Menu menu) {

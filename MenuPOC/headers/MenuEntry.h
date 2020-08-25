@@ -9,10 +9,14 @@ using namespace std;
 
 class MenuEntry : public MenuItem {
     private: 
-        string title;
-        string value;
+        string _title;
+        string _value;
 
     public:
+        inline MenuEntry(string title, string value) {
+            _title = title;
+            _value = value;
+        }
         string toString();
         void onChosen(Menu menu);   
 };
