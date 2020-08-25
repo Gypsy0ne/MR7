@@ -1,14 +1,12 @@
 #include "MenuDisplay.h"
 
-#include "MenuItem.h"
-#include "MenuOption.h"
 #include <iostream>
 #include <string>
 #include <list>
 using namespace std;
 
 void MenuDisplay::printOut(MenuOption actualOption, int cursorPosition){
-    printMenu(actualOption.getOrderedMenuItems());
+    printMenu(actualOption.getOrderedMenuItems()); // !!!! fix needed
     printBack();
     printCursorPosition(cursorPosition);
 }
@@ -16,7 +14,7 @@ void MenuDisplay::printOut(MenuOption actualOption, int cursorPosition){
 void MenuDisplay::printMenu(list<MenuItem> menuItems) {
     for (MenuItem x : menuItems) {
         // Serial.println(to_string(x));
-        cout << (string) x << endl;
+        cout <<  to_string(x) << endl; // use "title" member for menuItem class?
     }
 }
 

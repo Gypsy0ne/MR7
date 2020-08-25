@@ -30,9 +30,9 @@ list<MenuItem> MenuOption::getOrderedMenuItems() {
 MenuItem MenuOption::getMenuItemAt(int index) {
     int i = 0;
     list<MenuItem> menuItemList = getOrderedMenuItems();
-    for(MenuItem const& it : menuItemList) {
+    for(MenuItem const& item : menuItemList) {
         if(i++==index) {
-            return it;
+            return item;
         }
     }
 }
