@@ -5,11 +5,11 @@
 using namespace std;
 
 void MenuAction::execute() {
-    action.execute();
+    _action.execute();
 };
 
 string MenuAction::toString() {
-    return title;
+    return _title;
 };
 
 void MenuAction::onChosen(Menu menu) {

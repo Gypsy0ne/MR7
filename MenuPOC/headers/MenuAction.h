@@ -7,10 +7,14 @@
 
 class MenuAction : public MenuItem {
     private:
-        string title;
-        Command action;
+        string _title;
+        Command _action;
 
     public:
+        inline MenuAction(string title, Command action) { 
+            _title = title;
+            _action = action;
+        }
         void execute();
         string toString();
         void onChosen(Menu menu);
