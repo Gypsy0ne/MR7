@@ -9,7 +9,6 @@
 
 using namespace std;
 
-
 class MenuOption : public MenuItem {
     private:
         string _title;
@@ -18,13 +17,12 @@ class MenuOption : public MenuItem {
         list<MenuAction> _actions;
 
     public:
-        MenuOption& _parent;
+        MenuOption* _parent;
 
-        inline MenuOption(string title, MenuOption& parent) : _title(title),_parent(parent) {}
-        inline MenuOption(string title, MenuOption& parent, list<MenuEntry> entries) : _title(title),_parent(parent),_entries(entries) {}
-        inline MenuOption(string title, MenuOption& parent, list<MenuAction> actions) : _title(title),_parent(parent),_actions(actions) {}
+        inline MenuOption(string title, MenuOption* parent) : _title(title),_parent(parent) {}
+        inline MenuOption(string title, MenuOption* parent, list<MenuEntry> entries) : _title(title),_parent(parent),_entries(entries) {}
+        inline MenuOption(string title, MenuOption* parent, list<MenuAction> actions) : _title(title),_parent(parent),_actions(actions) {}
         
-
         void onChosen(Menu menu);
         MenuItem getMenuItemAt(int index);
         list<MenuItem> getOrderedMenuItems();
