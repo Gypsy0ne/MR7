@@ -1,14 +1,14 @@
 #include <iostream>
 #include <string>
 #include "headers/ConfigureMoistureDetector.h"
-#include "ConfigurePumpCommand.h"
-#include "MoistureDetector.h"
-#include "Pump.h"
-#include "ARDMenu.h"
-#include "Menu.h"
-#include "MenuAction.h"
-#include "MenuEntry.h"
-#include "MenuOption.h"
+#include "headers/ConfigurePumpCommand.h"
+#include "headers/MoistureDetector.h"
+#include "headers/Pump.h"
+#include "headers/ARDMenu.h"
+#include "headers/Menu.h"
+#include "headers/MenuAction.h"
+#include "headers/MenuEntry.h"
+#include "headers/MenuOption.h"
 
 using namespace std;
 
