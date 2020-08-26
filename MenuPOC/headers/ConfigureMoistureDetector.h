@@ -6,10 +6,12 @@
 #include "Command.h"
 
 //lcd display reference will be passed during creation and used in value picker initialization
-class ConfigureMoistureDetector : Command {
+class ConfigureMoistureDetector : public Command {
     public:
         void execute();
-        ConfigureMoistureDetector(MoistureDetector moistureDetector);
+        inline ConfigureMoistureDetector(MoistureDetector moistureDetector) {
+            _moistureDetector = moistureDetector;
+        }
 
     private:
         MoistureDetector _moistureDetector;
