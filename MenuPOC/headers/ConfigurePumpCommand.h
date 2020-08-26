@@ -3,10 +3,12 @@
 #include "Command.h"
 
 //lcd display reference will be passed during creation and used in value picker initialization
-class ConfigurePumpCommand : Command {
+class ConfigurePumpCommand : public Command {
     public:
         void execute();
-        ConfigurePumpCommand(Pump pump);
+        inline ConfigurePumpCommand(Pump pump) {
+            _pump = pump;
+        }
 
     private:
         Pump _pump;
