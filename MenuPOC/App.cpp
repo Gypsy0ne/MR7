@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "ConfigureMoistureDetector.h"
+#include "headers/ConfigureMoistureDetector.h"
 #include "ConfigurePumpCommand.h"
 #include "MoistureDetector.h"
 #include "Pump.h"
