@@ -3,6 +3,7 @@
 
 #include <string>
 #include <list>
+#include "Menu.h"
 #include "MenuAction.h"
 #include "MenuEntry.h"
 #include "MenuItem.h"

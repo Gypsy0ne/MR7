@@ -6,7 +6,7 @@
 using namespace std;
 
 void MenuDisplay::printOut(MenuOption actualOption, int cursorPosition){
-    printMenu(actualOption.getOrderedMenuItems()); // !!!! fix needed
+    printMenu(actualOption.getOrderedMenuItems());
     printBack();
     printCursorPosition(cursorPosition);
 }

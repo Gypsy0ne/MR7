@@ -1,9 +1,8 @@
 #ifndef MENU_H
 #define MENU_H
 
-#include "MenuAction.h"
-#include "MenuOption.h"
-using namespace std;
+class MenuAction;
+class MenuOption;
 
 class Menu {
     public:
