@@ -1,5 +1,4 @@
 #include "MenuController.h"
-#include "ControllerCallback.h"
 
 MenuController::MenuController(ControllerCallback controllerListener) {
     _controllerListener = controllerListener;

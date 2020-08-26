@@ -1,4 +1,4 @@
-#include "./headers/ValuePicker.h"
+#include "ValuePicker.h"
 #include <iostream>
 #include <string>
 #include <conio.h>

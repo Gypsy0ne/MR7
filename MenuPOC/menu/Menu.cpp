@@ -1,7 +1,5 @@
 #include "Menu.h"
 
-#include "MenuOption.h"
-#include "MenuAction.h"
 using namespace std;
 
 void Menu::start() { };
