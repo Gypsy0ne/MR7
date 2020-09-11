@@ -6,9 +6,9 @@
 class ConfigurePumpCommand : public Command {
     public:
         void execute();
-        inline ConfigurePumpCommand(Pump pump) : _pump(pump) {
+        inline ConfigurePumpCommand(Pump* pump) : _pump(pump) {
         }
 
     private:
-        Pump _pump;
+        Pump* _pump;
 };

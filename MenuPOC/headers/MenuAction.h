@@ -11,7 +11,6 @@ using namespace std;
 class MenuAction : public MenuItem {
     private:
         Command _action;
-        string toString();
 
     public:
         inline MenuAction(string title, Command action) { 
@@ -19,7 +18,6 @@ class MenuAction : public MenuItem {
             _action = action;
         }
         void execute();
-        void vToString();
         void onChosen(Menu menu);
 
 };

@@ -16,7 +16,11 @@ void MenuDisplay::printOut(MenuOption* actualOption, int cursorPosition){
 void MenuDisplay::printMenu(list<MenuItem*> menuItems) {
     for (MenuItem* i : menuItems) {
         // Serial.println(to_string(x));
-        cout << i->_title << endl;; // use "title" member for menuItem class?
+        cout << i->_title;
+        if (i->_value != "-") {
+            cout << ": " << i->_value;
+        }
+        cout << endl;
     }
 }
 

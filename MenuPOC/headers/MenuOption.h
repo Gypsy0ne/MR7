@@ -18,7 +18,6 @@ class MenuOption : public MenuItem {
         mutable list<MenuOption*> _subOptions;
         list<MenuEntry*> _entries;
         list<MenuAction*> _actions;
-        string toString();
 
 
     public:
@@ -51,7 +50,7 @@ class MenuOption : public MenuItem {
         }
         
         void onChosen(Menu menu);
-        MenuItem getMenuItemAt(int index);
+        MenuItem* getMenuItemAt(int index);
         list<MenuItem*> getOrderedMenuItems();
         int getNumberOfMenuLines();
         void vToString();

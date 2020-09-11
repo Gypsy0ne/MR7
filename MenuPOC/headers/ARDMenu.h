@@ -17,8 +17,8 @@ class ARDMenu : public Menu {
         ARDMenu(MenuOption* root);
         void onEnterPressed(int line);
         void start();
-        void onOptionChosen(MenuOption option);
-        void onActionChosen(MenuAction action);
+        void onOptionChosen(MenuOption* option);
+        void onActionChosen(MenuAction* action);
 
 };
 

@@ -23,7 +23,7 @@ void ARDMenu::resolveAction(int line) {
     if(line == getActualOptionNumberOfLines()) {
         goBack();
     } else {
-        onOptionChosen(actualOption->getMenuItemAt(line));
+        onOptionChosen(dynamic_cast<MenuOption*>(actualOption->getMenuItemAt(line)));
     }
 };
 
@@ -52,11 +52,11 @@ void ARDMenu::start() {
     }
 };
  
-void ARDMenu::onOptionChosen(MenuOption option) {
-    actualOption = &option;
+void ARDMenu::onOptionChosen(MenuOption* option) {
+    actualOption = option;
     controller.reinitCursor(getActualOptionNumberOfLines());
 };
 
-void ARDMenu::onActionChosen(MenuAction action) {
-    action.execute();
+void ARDMenu::onActionChosen(MenuAction* action) {
+    action->execute();
 };

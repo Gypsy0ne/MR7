@@ -8,10 +8,9 @@ using namespace std;
 
 class MenuItem {
     public:
-        string _title;
-        virtual void onChosen(Menu menu);
-        virtual void vToString();
-
+        string _title = "-";
+        string _value = "-";
+        virtual void onChosen(Menu menu)=0;
 };
 
 #endif

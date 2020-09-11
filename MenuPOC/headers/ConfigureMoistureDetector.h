@@ -9,11 +9,11 @@
 class ConfigureMoistureDetector : public Command {
     public:
         void execute();
-        inline ConfigureMoistureDetector(MoistureDetector moistureDetector) : _moistureDetector(moistureDetector) {
+        inline ConfigureMoistureDetector(MoistureDetector* moistureDetector) : _moistureDetector(moistureDetector) {
         }
 
     private:
-        MoistureDetector _moistureDetector;
+        MoistureDetector* _moistureDetector;
 
 };
 
