@@ -5,21 +5,25 @@
 using namespace std;
 
 MenuOption* actualOption;
-MenuDisplay display;
+MenuDisplay* display;
 ControllerCallback controllerListener;
 MenuController controller(controllerListener);
 
-ARDMenu::ARDMenu(MenuOption root) {
-    actualOption = &root;
-    display = MenuDisplay();
+ARDMenu::ARDMenu(MenuOption* root) {
+    actualOption = root;
+    display = new MenuDisplay;
     controller.reinitCursor(getActualOptionNumberOfLines());
 };
+
+void ARDMenu::onEnterPressed(int line) {
+    resolveAction(line);
+}
 
 void ARDMenu::resolveAction(int line) {
     if(line == getActualOptionNumberOfLines()) {
         goBack();
     } else {
-        actualOption->getMenuItemAt(line).onChosen(*this); // ?
+        onOptionChosen(actualOption->getMenuItemAt(line));
     }
 };
 
@@ -28,13 +32,13 @@ int ARDMenu::getActualOptionNumberOfLines() {
 };
 
 void ARDMenu::goBack() {
-    actualOption->_parent; // ?
+    actualOption = actualOption->_parent; // ?
     controller.reinitCursor(getActualOptionNumberOfLines());
 };
 
 void ARDMenu::start() {
     while(true) {
-        cout << actualOption << controller.cursorPosition << endl;
+        display->printOut(actualOption, controller.cursorPosition);
         unsigned char userInput = getch();
         if (userInput == 'w') {
             controller.up(); 
@@ -43,11 +47,11 @@ void ARDMenu::start() {
             controller.down(); 
         }
         else if (userInput == 'x') {
-            controller.enter(); 
+            resolveAction(controller.cursorPosition);
         }
     }
 };
-
+ 
 void ARDMenu::onOptionChosen(MenuOption option) {
     actualOption = &option;
     controller.reinitCursor(getActualOptionNumberOfLines());

@@ -5,6 +5,7 @@
 #include "MenuOption.h"
 #include "MenuDisplay.h"
 #include "MenuController.h"
+#include "ControllerCallback.h"
 
 class ARDMenu : public Menu {
     private:
@@ -13,7 +14,8 @@ class ARDMenu : public Menu {
         void goBack();
 
     public:
-        ARDMenu(MenuOption root);
+        ARDMenu(MenuOption* root);
+        void onEnterPressed(int line);
         void start();
         void onOptionChosen(MenuOption option);
         void onActionChosen(MenuAction action);

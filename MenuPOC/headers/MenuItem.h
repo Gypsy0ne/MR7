@@ -3,9 +3,15 @@
 
 #include "Menu.h"
 
+#include <string>
+using namespace std;
+
 class MenuItem {
     public:
-    virtual void onChosen(Menu menu);
+        string _title;
+        virtual void onChosen(Menu menu);
+        virtual void vToString();
+
 };
 
 #endif

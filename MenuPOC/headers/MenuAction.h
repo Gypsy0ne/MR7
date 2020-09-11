@@ -4,11 +4,14 @@
 #include <string>
 #include "Command.h"
 #include "MenuItem.h"
+#include "Menu.h"
+
+using namespace std;
 
 class MenuAction : public MenuItem {
     private:
-        string _title;
         Command _action;
+        string toString();
 
     public:
         inline MenuAction(string title, Command action) { 
@@ -16,7 +19,7 @@ class MenuAction : public MenuItem {
             _action = action;
         }
         void execute();
-        string toString();
+        void vToString();
         void onChosen(Menu menu);
 
 };

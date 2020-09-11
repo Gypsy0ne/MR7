@@ -5,4 +5,4 @@
 
 void Menu::start() { }
 void Menu::onActionChosen(MenuAction action) { }
-void Menu::onOptionChosen(MenuOption option) { }
+void Menu::onOptionChosen(MenuOption* option) { }

@@ -1,5 +1,6 @@
 #include "MenuAction.h"
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -9,6 +10,10 @@ void MenuAction::execute() {
 
 string MenuAction::toString() {
     return _title;
+};
+
+void MenuAction::vToString() {
+    cout << _title << endl;
 };
 
 void MenuAction::onChosen(Menu menu) {

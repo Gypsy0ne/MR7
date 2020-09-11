@@ -9,7 +9,7 @@ using namespace std;
 
 class MenuEntry : public MenuItem {
     private: 
-        string _title;
+        string toString();
         string _value;
 
     public:
@@ -17,7 +17,7 @@ class MenuEntry : public MenuItem {
             _title = title;
             _value = value;
         }
-        string toString();
+        void vToString();
         void onChosen(Menu menu);   
 };
 

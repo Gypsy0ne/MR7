@@ -5,16 +5,18 @@
 #include <list>
 using namespace std;
 
-void MenuDisplay::printOut(MenuOption actualOption, int cursorPosition){
-    printMenu(actualOption.getOrderedMenuItems());
-    printBack();
+void MenuDisplay::printOut(MenuOption* actualOption, int cursorPosition){
+    printMenu(actualOption->getOrderedMenuItems());
+    if (actualOption->_parent) {
+        printBack();
+    }
     printCursorPosition(cursorPosition);
 }
 
-void MenuDisplay::printMenu(list<MenuItem> menuItems) {
-    for (MenuItem x : menuItems) {
+void MenuDisplay::printMenu(list<MenuItem*> menuItems) {
+    for (MenuItem* i : menuItems) {
         // Serial.println(to_string(x));
-        cout <<  to_string(x) << endl; // use "title" member for menuItem class?
+        cout << i->_title << endl;; // use "title" member for menuItem class?
     }
 }
 

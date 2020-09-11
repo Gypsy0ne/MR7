@@ -8,7 +8,7 @@ class Menu {
     public:
         virtual void start();
         virtual void onActionChosen(MenuAction action);
-        virtual void onOptionChosen(MenuOption option);
+        virtual void onOptionChosen(MenuOption* option);
 };
 
 #endif
