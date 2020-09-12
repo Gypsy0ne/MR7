@@ -4,8 +4,6 @@
 
 #include "MenuItem.h"
 #include "MenuOption.h"
-#include <list>
-using namespace std;
 
 class MenuDisplay {
 

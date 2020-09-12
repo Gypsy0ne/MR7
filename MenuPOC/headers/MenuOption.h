@@ -1,9 +1,6 @@
 #ifndef MENUOPTION_H
 #define MENUOPTION_H
 
-#include <string>
-#include <iostream>
-#include <list>
 #include "Menu.h"
 #include "ARDMenu.h"
 #include "MenuAction.h"
@@ -11,7 +8,6 @@
 #include "MenuItem.h"
 
 
-using namespace std;
 
 class MenuOption : public MenuItem {
     private:

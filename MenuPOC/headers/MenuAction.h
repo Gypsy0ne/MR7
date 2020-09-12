@@ -1,7 +1,6 @@
 #ifndef MENUACTION_H
 #define MENUACTION_H
 
-#include <string>
 #include "Command.h"
 #include "MenuItem.h"
 #include "Menu.h"

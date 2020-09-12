@@ -3,8 +3,6 @@
 
 #include "Menu.h"
 
-#include <string>
-using namespace std;
 
 class MenuItem {
     public:
