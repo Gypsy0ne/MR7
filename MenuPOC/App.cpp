@@ -39,8 +39,12 @@ ARDMenu createMenu() {
     }
     MenuOption* temperature = new MenuOption("Temperature", stats, tempEntries);
     MenuOption* moisture = new MenuOption("Moisture", stats, moistEntries);
-    ConfigurePumpCommand CP1(P1), CP2(P2);
-    ConfigureMoistureDetector CS1(S1), CS2(S2);
+    ConfigurePumpCommand* CP1 = new ConfigurePumpCommand(P1);
+    ConfigurePumpCommand* CP2 = new ConfigurePumpCommand(P2);
+
+    ConfigureMoistureDetector* CS1 = new ConfigureMoistureDetector(S1); 
+    ConfigureMoistureDetector* CS2 = new ConfigureMoistureDetector(S2);
+
 
     MenuAction* pumpAction[2] = { new MenuAction("Configure Pompa", CP1), new MenuAction("Configure Cinek", CP2) };
     MenuAction* sensorAction[2] = { new MenuAction("Config wilgotnosc 1", CS1), new MenuAction("Config wilgotnosc 2", CS2) };

@@ -23,7 +23,7 @@ void ARDMenu::resolveAction(int line) {
     if(line == getActualOptionNumberOfLines()) {
         goBack();
     } else {
-        onOptionChosen(dynamic_cast<MenuOption*>(actualOption->getMenuItemAt(line)));
+        actualOption->getMenuItemAt(line)->onChosen(this);
     }
 };
 

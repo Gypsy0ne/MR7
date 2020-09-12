@@ -13,7 +13,7 @@ class MenuEntry : public MenuItem {
             _title = title;
             _value = value;
         }
-        void onChosen(Menu menu);   
+        void onChosen(Menu* menu);   
 };
 
 #endif

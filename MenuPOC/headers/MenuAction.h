@@ -10,15 +10,15 @@ using namespace std;
 
 class MenuAction : public MenuItem {
     private:
-        Command _action;
+        Command* _action;
 
     public:
-        inline MenuAction(string title, Command action) { 
+        inline MenuAction(string title, Command* action) { 
             _title = title;
             _action = action;
         }
         void execute();
-        void onChosen(Menu menu);
+        void onChosen(Menu* menu);
 
 };
 

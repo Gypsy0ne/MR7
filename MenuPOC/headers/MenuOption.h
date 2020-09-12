@@ -49,11 +49,10 @@ class MenuOption : public MenuItem {
 
         }
         
-        void onChosen(Menu menu);
+        void onChosen(Menu* menu);
         MenuItem* getMenuItemAt(int index);
         list<MenuItem*> getOrderedMenuItems();
         int getNumberOfMenuLines();
-        void vToString();
         void getLengthOfLongestMenuItemTitle();
         
         template<class T>

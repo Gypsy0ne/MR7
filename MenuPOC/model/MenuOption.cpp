@@ -3,9 +3,8 @@
 #include <cstdarg>
 
 
-void MenuOption::onChosen(Menu menu) {
-    menu.onOptionChosen(this);
-    cout << "Hejka" << endl;
+void MenuOption::onChosen(Menu* menu) {
+    menu->onOptionChosen(this);
 }
 
 int MenuOption::getNumberOfMenuLines() {

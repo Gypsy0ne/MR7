@@ -5,9 +5,9 @@
 using namespace std;
 
 void MenuAction::execute() {
-    _action.execute();
+    _action->execute();
 };
 
-void MenuAction::onChosen(Menu menu) {
-    menu.onActionChosen(this);
+void MenuAction::onChosen(Menu* menu) {
+    menu->onActionChosen(this);
 };
