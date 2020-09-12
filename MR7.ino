@@ -1,6 +1,7 @@
 #include "Config.h"
 #include "Sensors.h"
 #include "Pumps.h"
+#include "Modes.h"
 #include "Arduino.h"
 
 // TODO: error control for pumps (measure current between VCC and collectors. Analog reads on both nodes of a resistor in a common control line.)
@@ -11,6 +12,10 @@ bool sensorFlags[SENSORS_QTY] = {0};
 int cycles[SENSORS_QTY] = {0}; // Counts pump activations.
 unsigned long t = 0;
 
+configData dataSet;
+Pump PumpArray[PUMPS_QTY];
+MoistureSensor MsArray[SENSORS_QTY];
+
 void setup() {
     Serial.begin(9600);
     pinMode(SR_LATCH, OUTPUT);
@@ -19,10 +24,6 @@ void setup() {
     pinMode(TEMP_SENSOR, INPUT);
     pinMode(PUMP1, OUTPUT);
     pinMode(PUMP2, OUTPUT);
-
-    configData dataSet;
-    Pump PumpArray[PUMPS_QTY];
-    MoistureSensor MsArray[SENSORS_QTY];
 
     for(int i = 0; i < PUMPS_QTY; i++) {
         PumpArray[i].setParameters(i, dataSet.worktimeGetter(i), i);
@@ -34,6 +35,22 @@ void setup() {
     }
 }
 
-void loop() {
+void setSensorFlags() {
+    for (int i = 0; i < SENSORS_QTY; i++) {
+        MsArray[i].setFlag();
+    }
+}
 
+void supplyFlaggedSensors() {
+    for (int i = 0; i < SENSORS_QTY; i++) {
+        if (MsArray[i].checkFlag()) {
+            PumpArray[i].run();
+            MsArray[i].clearFlag();
+        }
+    }
+}
+
+void loop() {
+    setSensorFlags();
+    supplyFlaggedSensors();
 }

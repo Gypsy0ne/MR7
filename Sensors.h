@@ -15,7 +15,7 @@ class Sensor {
         bool _flag;
 };
 
-class MoistureSensor : Sensor {
+class MoistureSensor : public Sensor {
     public:
         inline MoistureSensor() {
             _muxChannel = 0;
@@ -41,7 +41,7 @@ class MoistureSensor : Sensor {
         int _value;
 };
 
-class TSensorsBus : Sensor { // temperature sensors TODO
+class TSensorsBus : public Sensor { // temperature sensors TODO
     public:
         inline TSensorsBus(int digitalPin) { 
             _digitalPin = TEMP_SENSOR;

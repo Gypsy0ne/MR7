@@ -8,14 +8,14 @@ class Multiplexer {
         virtual void setChannel(int channel)=0;
 };
 
-class PumpMuxDuo : Multiplexer {
+class PumpMuxDuo : public Multiplexer {
     public:
         inline PumpMuxDuo(int channel) { setChannel(channel); }
     private:
         void setChannel(int channel);
 };
 
-class SensorMuxDuo : Multiplexer {
+class SensorMuxDuo : public Multiplexer {
     public:
         inline SensorMuxDuo(int channel) { setChannel(channel); }
     private:

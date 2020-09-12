@@ -54,10 +54,12 @@ void Pump::activate() {
         Serial.println((String) "Pump " + _channel + " activated.");
 }
 
-void runFlaggedPumps(bool sensorFlags[], int cycles[]) {
-    for(int i = 0; i < PUMPS_QTY; i++)
-        if(sensorFlags[i]){
-            runSinglePump(i);
-            cycles[i]++;
+bool Pump::run() {
+    activate();
+    while (1) {
+        if (timesUp()) {
+            off();
+            return 1;
         }
+    }
 }

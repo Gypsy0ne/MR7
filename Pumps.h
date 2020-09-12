@@ -1,6 +1,8 @@
 #ifndef Pumps_h
 #define Pumps_h
 
+#include "Config.h"
+
 class Pump {
     public:
         Pump();
