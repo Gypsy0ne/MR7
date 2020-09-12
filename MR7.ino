@@ -24,6 +24,9 @@ void setup() {
     pinMode(TEMP_SENSOR, INPUT);
     pinMode(PUMP1, OUTPUT);
     pinMode(PUMP2, OUTPUT);
+    pinMode(ENC_L, INPUT);
+    pinMode(ENC_R, INPUT);
+    pinMode(ENC_BUTTON, INPUT_PULLUP);
 
     for(int i = 0; i < PUMPS_QTY; i++) {
         PumpArray[i].setParameters(i, dataSet.worktimeGetter(i), i);
