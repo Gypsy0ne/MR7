@@ -35,11 +35,17 @@ bool checkTimeMinutes(unsigned long count, unsigned long& timeMark) {
 
 bool checkTimeSeconds(unsigned long count, unsigned long& timeMark) {
     unsigned long currentTime = millis();
-    if(currentTime - timeMark >= count * 1000) {
-        timeMark = 0;
-        return 1;
+    if (timeMark) {
+        if (currentTime - timeMark >= count * 1000) {
+            timeMark = 0;
+            return 1;
+        }
+        else {
+            return 0;
+        }
     }
     else {
         return 0;
     }
+
 }

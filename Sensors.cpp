@@ -35,7 +35,7 @@ int MoistureSensor::mapValue() {
 }
 
 bool MoistureSensor::isDry() {
-    Serial.println((String)"S" + _ID + ": " + _value + "% /n");
+    // Serial.println((String)"S" + _ID + ": " + _value + "%");
     if (mapValue() < _thresholdPercentage) {
         return 1;
     } else {

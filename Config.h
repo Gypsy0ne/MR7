@@ -24,15 +24,16 @@ struct configData {
 //Arduino
 const int SR_LATCH = 5; // Shift Register Controls. vv
 const int SR_SHIFT = 6;
-const int SR_DATA = 7;
+const int SR_DATA = 3;
 const int PUMP1 = 8;
 const int PUMP2 = 9;
 const int TEMP_SENSOR = 10;
 const int ENC_L = 2; // Encoder controls. vv
 const int ENC_R = 4;
-const int ENC_BUTTON = 3;
+const int ENC_BUTTON = 7;
 
-//Shift Registers
+//Interface
+const int LAYERS = 3;
 
 
 //Sensors
