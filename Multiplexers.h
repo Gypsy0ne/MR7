@@ -5,21 +5,22 @@
 
 class Multiplexer {
     protected:
-        virtual void setChannel(unsigned int channel)=0;
+        virtual void setChannel(int channel)=0;
 };
 
 class PumpMuxDuo : public Multiplexer {
     public:
-        inline PumpMuxDuo(unsigned int channel) { setChannel(channel); }
+        inline PumpMuxDuo(int channel) { setChannel(channel); }
     private:
-        void setChannel(unsigned int channel);
+        void setChannel(int channel);
 };
 
 class SensorMuxDuo : public Multiplexer {
     public:
-        inline SensorMuxDuo(unsigned int channel) { setChannel(channel); }
+        inline SensorMuxDuo(int channel) { setChannel(channel); }
     private:
-        void setChannel(unsigned int channel);
+        void setChannel(int channel);
 };
 
 #endif
+

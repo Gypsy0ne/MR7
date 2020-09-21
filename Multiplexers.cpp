@@ -4,7 +4,7 @@
 #include "Arduino.h"
 
 // Hardware note: The same channel is set for both sensor MUXes. One MUX is connected to, for example, A0 and the other A1. 
-void SensorMuxDuo::setChannel(unsigned int channel) { 
+void SensorMuxDuo::setChannel(int channel) { 
     ShiftRegister SR;
     switch(channel) { // Q0/a Q1/b Q2/c
         case 0: // 0 0 0 
@@ -42,7 +42,7 @@ void SensorMuxDuo::setChannel(unsigned int channel) {
 }
 
 // Hardware note: Same channel is set for both muxes, last two digits may determine which one gets high input.
-void PumpMuxDuo::setChannel(unsigned int channel) { 
+void PumpMuxDuo::setChannel(int channel) { 
     ShiftRegister SR;
     switch(channel) { // Q3/a Q4/b Q5/c
         case 0: // 0 0 0 0 0 0  0 1

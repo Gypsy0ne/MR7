@@ -13,7 +13,6 @@ struct configData {
         bool thresholdSetter(int ID, int value);
         int worktimeGetter(int ID);
         bool worktimeSetter(int ID, int value);
-        volatile int move;
 
     private:
         int moistureThresholdPercentage[16];
