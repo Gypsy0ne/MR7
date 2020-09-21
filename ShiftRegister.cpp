@@ -29,7 +29,7 @@ void ShiftRegister::activateLatch() {
     digitalWrite(_latch, LOW);
 }
 
-void ShiftRegister::latchBitSequence(int sequence) {
+void ShiftRegister::latchBitSequence(unsigned int sequence) {
     int digit[8];
     int i = 0;
     while (sequence) { // translate sequence into array

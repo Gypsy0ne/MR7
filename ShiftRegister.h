@@ -21,7 +21,7 @@ class ShiftRegister {
         void addBit(bool state, int howMany=1);
         void activateLatch();
         // reversal sequence. Example: if you want 001101, sequence = 101100
-        void latchBitSequence(int sequence);
+        void latchBitSequence(unsigned int sequence);
 };
 
 #endif
